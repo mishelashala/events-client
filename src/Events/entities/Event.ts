@@ -1,9 +1,8 @@
 export type Event = {
-  id: string;
+  id?: string;
   name: string;
 };
 
 export const event = () => ({
-  id: "",
   name: "",
 });

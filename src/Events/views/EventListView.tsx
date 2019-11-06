@@ -30,12 +30,21 @@ export const EventListViewFactory = (eventService: IEventService) => {
       return <div>Error: {error.message}</div>;
     }
 
+    if (!events.length) {
+      return <div>You don't have any event :(</div>;
+    }
+
     return (
       <div className="App">
         {events.map(event => {
           return (
             <Link key={event.id} to={`/${event.id}`}>
-              <div>{event.name}</div>
+              <div>
+                {event.name}
+                <Link to={`/${event.id}/edit`}>
+                  <p>EDIT</p>
+                </Link>
+              </div>
             </Link>
           );
         })}

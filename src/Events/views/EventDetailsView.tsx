@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { Event, event } from "../entities/Event";
 import { IEventService } from "../services/EventService";
 
@@ -19,6 +19,9 @@ export const EventDetailsViewFactory = (eventService: IEventService) => {
       <div>
         <p>id: {eventDetails.id}</p>
         <p>name: {eventDetails.name}</p>
+        <Link to={`/${eventDetails.id}/edit`}>
+          <p>EDTI</p>
+        </Link>
       </div>
     );
   };
